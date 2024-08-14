@@ -1,38 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2121216d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #577ca3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #55555500;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.bgimage {
+  position: relative;
+  background: url("./assets/Kanban_Board_Background.jpg");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.heading{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.heading h1{
+  font-size: 2em;
+  font-weight: 800;
+  margin-left: 50px;  
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.heading .animation{
+  width: 75%;
+  height: 75%;
+}
+
 .App {
+  max-width: 90%;
+  height: 85%;
+  margin: 0 auto;
+  padding: 32px;
+  position: absolute;
+  background-color: rgb(250, 235, 215, 0.5);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.kanban-board {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.column {
+  flex: 1 1;
+  background-color: #f4f5f7;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.column h2{
+  font-weight: 800;
+}
+
+.task {
+  background: linear-gradient(90deg, rgb(165, 245, 241) 0%, rgb(126, 209, 202) 100%);
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: move;
+  margin-top: 16px;
+}
+
+.task.dragging {
+  opacity: 0.5;
+}
+
+.Bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.search-bar {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1.5px solid black;
+}
+
+.add-task-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-task-button {
+  background-color: #4caf50;
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.add-task-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.add-task-form input,
+.add-task-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1.5px solid black;
+}
+
+.add-task-form button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 728px) {
+
+  #root{
+    height: 110%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .bgimage{
+    height: 110%;
+  }
+
+  .App{
+    height: 100%;
+  }
+
+  .heading h1{
+    font-size: 1.5em;
+    margin-left: 35px;
+  }
+
+  .kanban-board{
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .Bar{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .column{
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .column h2{
+    font-size: 1em;
+    font-weight: 800;
+  }
+
+  .add-task-container{
+    margin-top: 8px;
+    margin-bottom: 16px;
   }
 }
